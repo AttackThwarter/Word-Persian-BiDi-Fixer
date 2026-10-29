@@ -1,2 +1,34 @@
-# Word-Persian-BiDi-Fixer
-A VBA Macro for Microsoft Word to fix Persian/English (BiDi) punctuation, parentheses, and center images automatically.
+# Word Persian BiDi Punctuation & Image Fixer 🛠️📄
+
+یک ماکروی کاربردی در نرم‌افزار **Microsoft Word (VBA)** برای حل مشکل به‌هم‌ریختگی پرانتزها، دونقطه‌ها و علائم نگارشی در متون ترکیبی فارسی و انگلیسی (به‌ویژه متون خروجی هوش مصنوعی مثل ChatGPT، Claude و Gemini) به همراه وسط‌چین کردن خودکار تمام تصاویر سند.
+
+A lightweight **VBA Macro for Microsoft Word** that automatically fixes misplaced parentheses `()` and colons `:` in mixed Right-to-Left (Persian/Arabic) and Left-to-Right (English) documents, and centers all images with a single click.
+
+---
+
+## ❌ مشکل چیست؟ (The Problem)
+وقتی متنی شامل اصطلاحات انگلیسی داخل پرانتز از هوش مصنوعی به ورد کپی می‌شود، الگوریتم دوجهته ورد (BiDi) در تشخیص جهت پرانتزها و دونقطه‌ها دچار خطا می‌شود. برای مثال:
+* عبارت `پدیده ریباند (Rebound):` به شکل معکوس `پدیده ریباند (:Rebound(` نمایش داده می‌شود.
+* عبارت ترکیبی `نیمه BBP (The Half BBP):` به شکل `نیمه :(BBP (The Half BBP` به هم می‌ریزد.
+
+## ✅ راه‌حل این اسکریپت (The Solution)
+این اسکریپت بدون نیاز به ویرایش دستی صفحات، در کسری از ثانیه کارهای زیر را روی کل سند (حتی فایل‌های صدصفحه‌ای) انجام می‌دهد:
+1. **راست‌چین و RTL کردن** تمام پاراگراف‌ها و تنظیم زبان متن روی فارسی.
+2. **تزریق هوشمند کاراکتر مخفی استاندارد یونی‌کد `RLM (U+200F)`** قبل از پرانتز باز و بعد از پرانتز بسته و دونقطه، برای قفل کردن موقعیت مکانی آن‌ها.
+3. **وسط‌چین کردن خودکار تمام تصاویر** موجود در فایل (هم تصاویر عادی `InlineShapes` و هم تصاویر شناور `Shapes`).
+
+---
+
+## 🚀 آموزش استفاده گام‌به‌گام (How to Use)
+
+1. فایل ورد (`Word`) خود را باز کنید.
+2. کلیدهای ترکیبی **`Alt + F11`** را روی کیبورد فشار دهید تا پنجره ویرایشگر **Microsoft Visual Basic for Applications** باز شود.
+3. از منوی بالا روی **Insert** کلیک کرده و گزینه **Module** را انتخاب کنید.
+4. کد موجود در فایل [`FixPersianBiDi.bas`](./FixPersianBiDi.bas) این مخزن را کپی کرده و در صفحه سفید بازشده پیست (Paste) کنید.
+5. کلید **`F5`** (یا دکمه سبز رنگ **Run** در نوار بالا) را بزنید.
+6. با مشاهده پیغام `Done! All punctuation fixed and images centered.` کار تمام است! پنجره کد را ببندید و فایل ورد اصلاح‌شده خود را ذخیره کنید.
+
+---
+
+## 📜 لایسنس (License)
+این پروژه تحت لایسنس **MIT** منتشر شده است و استفاده، ویرایش و انتشار آن برای همگان آزاد است.
